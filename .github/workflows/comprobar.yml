@@ -1,0 +1,11 @@
+name: Comprobar web
+on: [push, pull_request]
+jobs:
+  comprobar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Listar ficheros
+        run: ls -la
+      - name: Comprobar index.html
+        run: grep -q "<title>" index.html && echo "Web lista"
